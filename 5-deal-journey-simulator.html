@@ -1,0 +1,423 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{
+  --ink:#141414; --ink-2:#3a3a3a; --muted:#6e6a64; --paper:#ffffff; --sand:#f7f2eb; --sand-2:#efe7dc;
+  --line:#e4ddd2; --orange:#f26722; --orange-d:#d2540f; --orange-l:#fde9dd; --ok:#2f7d4f; --ok-l:#e3f2e8;
+  --warn:#b7791f; --warn-l:#fbf0dc; --bad:#b23b3b; --bad-l:#f7e2e2; --radius:14px;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--sand);line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.display{font-family:'Archivo',sans-serif;letter-spacing:-.01em;margin:0}
+h1{font-size:clamp(28px,5vw,44px);font-weight:800;text-transform:uppercase;line-height:1.05}
+h2{font-size:22px;font-weight:800;text-transform:uppercase}
+h3{font-size:16px;font-weight:700}
+p{margin:0}
+.topbar{background:var(--ink);color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.wordmark{font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:.18em;font-size:14px;text-transform:uppercase}
+.wordmark b{color:var(--orange)}
+.topbar .tag{font-size:12px;color:#bdb6ac;letter-spacing:.08em;text-transform:uppercase}
+.hero{background:var(--ink);color:#fff;padding:36px 20px 64px}
+.hero .eyebrow{color:var(--orange);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+.hero p.lead{color:#d6d0c7;max-width:620px;margin-top:12px;font-size:16px}
+.wrap{max-width:880px;margin:0 auto}
+.card{background:var(--paper);border-radius:var(--radius);box-shadow:0 10px 30px rgba(20,20,20,.08);padding:28px}
+.lift{margin-top:-40px}
+.btn{appearance:none;border:0;border-radius:999px;padding:13px 26px;font:700 14px 'Inter',sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:.15s}
+.btn-primary{background:var(--orange);color:#fff}.btn-primary:hover{background:var(--orange-d)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}.btn-ghost:hover{background:var(--ink);color:#fff}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.between{justify-content:space-between}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.opt{border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;background:#fff;text-align:left;font:inherit;color:inherit;transition:.12s;width:100%}
+.opt:hover{border-color:var(--ink)}
+.opt.sel{border-color:var(--orange);background:var(--orange-l)}
+.opt .t{font-weight:700}.opt .s{font-size:13px;color:var(--muted)}
+.progress{height:6px;background:var(--sand-2);border-radius:99px;overflow:hidden}
+.progress>i{display:block;height:100%;background:var(--orange);transition:width .3s}
+.muted{color:var(--muted)}.small{font-size:13px}
+label.f{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+input[type=text],input[type=email],input[type=tel],input[type=date],select{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;font:inherit;background:#fff;color:var(--ink)}
+input:focus,select:focus{outline:none;border-color:var(--orange)}
+input[type=range]{width:100%;accent-color:var(--orange)}
+.pill{display:inline-block;padding:4px 10px;border-radius:99px;font-size:12px;font-weight:700;letter-spacing:.04em;background:var(--sand-2);color:var(--ink-2)}
+.pill.o{background:var(--orange-l);color:var(--orange-d)}.pill.ok{background:var(--ok-l);color:var(--ok)}.pill.warn{background:var(--warn-l);color:var(--warn)}.pill.bad{background:var(--bad-l);color:var(--bad)}
+.hs{text-align:left;margin-top:20px;background:#1d1d1d;color:#e8e2d8;border-radius:12px;padding:16px;font:12px/1.55 ui-monospace,Menlo,monospace;white-space:pre-wrap;word-break:break-word}
+.hs .k{color:#f5a676}
+.hs-h{display:flex;align-items:center;gap:8px;font:700 11px 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#9b958c;margin-bottom:8px}
+.hs-h:before{content:"";width:8px;height:8px;border-radius:50%;background:#ff7a59}
+footer{text-align:center;padding:28px 16px 40px;font-size:12px;color:var(--muted)}
+.fade{animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (max-width:600px){.card{padding:20px}.hero{padding:28px 16px 56px}.topbar .tag{display:none}}
+[hidden]{display:none!important}
+.backlink{color:#fff;text-decoration:none;font:700 12px 'Inter',sans-serif;letter-spacing:.06em;text-transform:uppercase;border:1px solid #444;border-radius:99px;padding:6px 12px;margin-right:auto;margin-left:0;order:-1;transition:.15s}
+.backlink:hover{border-color:var(--orange);color:var(--orange)}
+.topbar .backlink+.wordmark{margin-right:auto}
+/* ---------- gamification kit ---------- */
+.hud{position:fixed;top:58px;right:12px;z-index:50;background:#fff;border-radius:99px;box-shadow:0 6px 20px rgba(0,0,0,.18);padding:5px 14px 5px 5px;display:flex;align-items:center;gap:10px;font:700 13px 'Inter',sans-serif}
+.hud .lvl{width:34px;height:34px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;font:800 12px 'Archivo',sans-serif}
+.hud .xpb{width:90px;height:6px;background:var(--sand-2);border-radius:9px;overflow:hidden;margin-top:3px}.hud .xpb i{display:block;height:100%;background:var(--orange);transition:width .5s}
+.hud.bump{animation:bump .45s}
+@keyframes bump{40%{transform:scale(1.1)}}
+.xp-pop{position:fixed;z-index:60;font:800 18px 'Archivo',sans-serif;color:var(--orange);pointer-events:none;animation:xpup 1s ease forwards;text-shadow:0 1px 0 #fff}
+@keyframes xpup{to{transform:translateY(-55px);opacity:0}}
+.toasts{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:70;display:flex;flex-direction:column;gap:8px;align-items:center;width:min(92vw,380px);pointer-events:none}
+.toast{background:var(--ink);color:#fff;border-radius:14px;padding:12px 16px;display:flex;gap:12px;align-items:center;box-shadow:0 10px 30px rgba(0,0,0,.3);animation:tin .45s cubic-bezier(.2,1.4,.4,1);width:100%}
+.toast.out{animation:tout .3s forwards}
+.toast small{display:block;color:#bdb6ac;font-size:12px}
+.toast .k{font:800 10px 'Inter',sans-serif;letter-spacing:.14em;color:var(--orange);text-transform:uppercase}
+@keyframes tin{from{transform:translateY(30px) scale(.9);opacity:0}}
+@keyframes tout{to{transform:translateY(20px);opacity:0}}
+.medal{width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ffb47e,var(--orange) 70%);color:#fff;display:grid;place-items:center;flex:none;box-shadow:inset 0 -3px 0 rgba(0,0,0,.15),0 0 0 3px rgba(242,103,34,.18)}
+.medal.lock{background:var(--sand-2);color:#c4bbae;box-shadow:none}
+.medal.ink{background:radial-gradient(circle at 30% 30%,#555,#141414 70%)}
+.badges{display:flex;flex-wrap:wrap;gap:12px}
+.bdg{display:flex;flex-direction:column;align-items:center;gap:6px;width:78px;text-align:center;font-size:11px;font-weight:700;color:var(--ink-2);line-height:1.2}
+.bdg.lock{color:#b9b0a3}
+.bdg.new .medal{animation:popin .7s cubic-bezier(.2,1.6,.4,1)}
+@keyframes popin{from{transform:scale(0) rotate(-40deg)}}
+.scratch{position:relative;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,var(--orange-l),#fff);border:2px dashed var(--orange);min-height:160px;display:grid;place-items:center;text-align:center;padding:20px;user-select:none}
+.scratch canvas{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair;touch-action:none}
+.scratch .prize{font:800 26px 'Archivo',sans-serif;color:var(--orange-d)}
+.wheel-wrap{position:relative;width:min(300px,78vw);aspect-ratio:1;margin:8px auto}
+.wheel-wrap svg{width:100%;height:100%;transition:transform 4.2s cubic-bezier(.12,.8,.12,1);filter:drop-shadow(0 8px 16px rgba(0,0,0,.18))}
+.wheel-ptr{position:absolute;top:-8px;left:50%;transform:translateX(-50%);border-left:14px solid transparent;border-right:14px solid transparent;border-top:26px solid var(--ink);z-index:2}
+.modal-bg{position:fixed;inset:0;background:rgba(20,20,20,.6);z-index:80;display:grid;place-items:center;padding:16px;animation:fade .25s}
+.modal{background:#fff;border-radius:20px;max-width:440px;width:100%;padding:30px 26px;text-align:center;animation:tin .5s cubic-bezier(.2,1.4,.4,1);max-height:92vh;overflow:auto}
+.big-medal{width:104px;height:104px;margin:0 auto 14px;animation:popin .8s cubic-bezier(.2,1.6,.4,1)}
+.big-medal svg{width:50px;height:50px}
+.shake{animation:shake .4s}@keyframes shake{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+.pulse{animation:pulse 1.6s infinite}@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(242,103,34,.5)}70%{box-shadow:0 0 0 14px rgba(242,103,34,0)}100%{box-shadow:0 0 0 0 rgba(242,103,34,0)}}
+.breathe{width:120px;height:120px;border-radius:50%;margin:10px auto;background:radial-gradient(circle,var(--orange-l),var(--orange));animation:breathe 2.4s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(.6);opacity:.7}}
+.opt{transition:transform .12s,border-color .12s,background .12s}.opt:active{transform:scale(.97)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.embedded .hud{position:absolute}
+</style><title>Free Week Deal Simulator</title>
+<style>
+body{background:#f3efe9}
+.wrap{max-width:1180px}
+.panel{background:#fff;border-radius:var(--radius);padding:22px;box-shadow:0 6px 20px rgba(0,0,0,.05)}
+.layout{display:grid;grid-template-columns:360px minmax(0,1fr);gap:20px;margin-top:20px}
+@media (max-width:900px){.layout{grid-template-columns:1fr}}
+.daygrid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:10px}
+.dc{border:1.5px solid var(--line);border-radius:10px;padding:8px 2px;text-align:center;cursor:pointer;background:#fff;font:inherit;user-select:none}
+.dc .n{font:800 11px 'Archivo',sans-serif;color:var(--muted);letter-spacing:.08em}
+.dc .s{font-size:11px;font-weight:700;margin-top:4px;min-height:14px}
+.dc.b{border-color:var(--warn);background:var(--warn-l)}.dc.b .s{color:var(--warn)}
+.dc.a{border-color:var(--ok);background:var(--ok-l)}.dc.a .s{color:var(--ok)}
+.presets{display:flex;flex-wrap:wrap;gap:6px}.presets button{border:1.5px solid var(--line);background:#fff;border-radius:99px;padding:7px 12px;font:600 12px 'Inter',sans-serif;cursor:pointer}
+.presets button:hover,.presets button.sel{border-color:var(--orange);background:var(--orange-l)}
+.stages{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px}@media (max-width:700px){.stages{grid-template-columns:repeat(4,1fr)}}
+.stg{padding:10px 4px;border-radius:8px;background:var(--sand);font:700 11px 'Inter',sans-serif;text-align:center;letter-spacing:.03em;color:var(--muted);position:relative}
+.stg.v{background:var(--sand-2);color:var(--ink)}
+.stg.cur{background:var(--orange);color:#fff}
+.stg.won.cur{background:var(--ok)}.stg.lost.cur{background:var(--bad)}
+.stg small{display:block;font-weight:500;font-size:10px;opacity:.8;margin-top:2px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
+@media (max-width:600px){.kpis{grid-template-columns:1fr 1fr}}
+.kpi{background:var(--sand);border-radius:10px;padding:12px}.kpi b{font:800 24px 'Archivo',sans-serif;display:block}.kpi span{font-size:12px;color:var(--muted)}
+.tl{position:relative;margin-top:6px}
+.tl-day{display:grid;grid-template-columns:70px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--line)}
+.tl-day .d{font:800 13px 'Archivo',sans-serif}.tl-day .d small{display:block;font:500 11px 'Inter',sans-serif;color:var(--muted)}
+.ev{display:flex;gap:8px;align-items:flex-start;margin:4px 0;font-size:14px}
+.tagx{flex:none;font:800 10px 'Inter',sans-serif;letter-spacing:.08em;padding:3px 7px;border-radius:5px;margin-top:2px;min-width:74px;text-align:center}
+.t-stage{background:var(--ink);color:#fff}.t-auto{background:#e7eefc;color:#2b55b8}.t-seller{background:var(--orange-l);color:var(--orange-d)}.t-exc{background:var(--bad-l);color:var(--bad)}.t-member{background:#efefef;color:#555}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted);margin-top:10px}
+details{margin-top:16px;font-size:13px}details summary{cursor:pointer;font-weight:700}
+details li{margin:4px 0}
+.filter{display:flex;gap:6px;flex-wrap:wrap}.filter label{font-size:12px;display:flex;gap:4px;align-items:center}
+.tabs{display:flex;gap:4px;margin-top:18px;background:#fff;padding:5px;border-radius:99px;width:fit-content;max-width:100%;box-shadow:0 4px 14px rgba(0,0,0,.06)}
+.tab{border:0;background:transparent;padding:10px 18px;border-radius:99px;font:700 13px 'Inter',sans-serif;cursor:pointer;color:var(--ink-2)}.tab.on{background:var(--ink);color:#fff}
+.gamep{max-width:780px;margin:20px auto 0}
+.ghead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.hearts{display:flex;gap:3px;color:var(--bad)}.hearts .gone{color:var(--sand-2)}
+.mini{display:grid;grid-template-columns:repeat(7,1fr) auto;gap:4px;margin:8px 0 14px}
+.opt.right{border-color:var(--ok);background:var(--ok-l)}.opt.wrong{border-color:var(--bad);background:var(--bad-l)}.opt:disabled{color:inherit}
+.lb-row{display:flex;justify-content:space-between;padding:10px 12px;border-radius:10px}.lb-row:nth-child(odd){background:var(--sand)}.lb-row.me{background:var(--orange-l);font-weight:800}
+@media (max-width:600px){.mini{grid-template-columns:repeat(4,1fr)}.tab{padding:9px 12px;font-size:12px}}
+</style></head><body>
+<div class="topbar"><a class="backlink" href="index.html">&larr; All apps</a><div class="wordmark">CorePower <b>Yoga</b></div><div class="tag">Internal · Free Week pipeline</div></div>
+<div class="wrap" style="padding:24px 16px 0">
+ <div class="row between"><div><div class="small" style="color:var(--orange);font-weight:700;letter-spacing:.14em;text-transform:uppercase">Deal journey simulator</div><h1 style="font-size:clamp(24px,4vw,34px);margin-top:4px">Free Week: what happens when?</h1>
+ <p class="muted" style="margin-top:6px;max-width:680px">Build a member scenario day by day and see the deal stage, the automations that fire and every point where a seller needs to act. Unified pipeline, one deal from signup to close.</p></div>
+ <span class="pill warn">Draft logic for review</span></div>
+ <div class="tabs"><button class="tab on" data-t="explore">Explore scenarios</button><button class="tab" data-t="game">Training game: Pipeline Pro</button></div>
+ <div class="layout" id="explore">
+  <div class="panel">
+   <h3>1. Pick a preset or build your own</h3>
+   <div class="presets" style="margin-top:10px" id="presets"></div>
+   <h3 style="margin-top:22px">2. Free Week activity</h3>
+   <p class="small muted">Click a day to cycle: no activity → booked, no-show → attended.</p>
+   <div class="daygrid" id="days"></div>
+   <h3 style="margin-top:22px">3. Purchase</h3>
+   <select id="buy" style="margin-top:8px"></select>
+   <h3 style="margin-top:22px">Show</h3>
+   <div class="filter" style="margin-top:8px" id="filters"></div>
+   <details><summary>Rules used (draft)</summary><ul style="padding-left:18px">
+    <li><b>Signed Up</b>: deal created from Zenoti sync, owner assigned by home studio.</li>
+    <li><b>First Class Booked</b>: first booking in Zenoti.</li>
+    <li><b>Attended</b>: first check-in. <b>Engaged</b>: 3+ check-ins.</li>
+    <li><b>Lapsed</b> (during trial): no check-in by end of Day 4, or 3+ days since last check-in. A new check-in moves the deal back.</li>
+    <li><b>Trial Expired</b> (after trial): Day 8 with no purchase, whatever the activity. Activity level is kept as a property, not a separate pipeline.</li>
+    <li><b>Closed Won</b>: any membership or pack purchase, Day 1–14.</li>
+    <li><b>Closed Lost</b>: Day 15 with no purchase. Reason is set automatically from activity.</li>
+    <li>No-show on a booked class triggers a reschedule email; second no-show creates a seller task.</li></ul></details>
+  </div>
+  <div class="panel">
+   <div class="stages" id="stages"></div>
+   <div class="kpis" id="kpis"></div>
+   <div class="legend"><span><span class="tagx t-stage">STAGE</span> deal moves</span><span><span class="tagx t-auto">AUTO</span> workflow / sequence</span><span><span class="tagx t-seller">SELLER</span> manual action</span><span><span class="tagx t-exc">EXCEPTION</span> edge case</span></div>
+   <div class="tl" id="tl" style="margin-top:14px"></div>
+  </div>
+ </div>
+ <div id="game" hidden><div class="panel gamep" id="gp"></div></div>
+</div>
+<footer>Concept prototype for CorePower Yoga &middot; sample data and sample rewards &middot; brand colours approximated, swap in the official brand kit before launch</footer>
+<script>const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function hsPayload(obj){
+  const json=JSON.stringify(obj,null,2).replace(/"([^"]+)":/g,'<span class="k">"$1"</span>:');
+  return `<div class="hs fade"><div class="hs-h">HubSpot payload (preview)</div>${json}</div>`;
+}
+const STUDIOS=[
+  {id:'den-cap',name:'Denver – Capitol Hill',city:'Denver, CO'},
+  {id:'bou-pearl',name:'Boulder – Pearl Street',city:'Boulder, CO'},
+  {id:'chi-wp',name:'Chicago – Wicker Park',city:'Chicago, IL'},
+  {id:'aus-dt',name:'Austin – Downtown',city:'Austin, TX'},
+  {id:'sd-ph',name:'San Diego – Pacific Beach',city:'San Diego, CA'},
+  {id:'nyc-fd',name:'New York – Flatiron',city:'New York, NY'}
+];
+const CLASSES={
+  C1:{name:'CorePower Yoga 1',code:'C1',heat:'Non-heated',int:1,desc:'Foundational flow. Learn the poses, breath and alignment at a steady pace.'},
+  C2:{name:'CorePower Yoga 2',code:'C2',heat:'Heated',int:2,desc:'Flowing vinyasa in a heated room. Build heat, strength and flexibility.'},
+  YS:{name:'Yoga Sculpt',code:'YS',heat:'Heated',int:3,desc:'Yoga plus weights and cardio bursts set to an upbeat playlist.'},
+  HPF:{name:'Hot Power Fusion',code:'HPF',heat:'Hot',int:2,desc:'Held postures in a hot room with a focus on alignment and detox-style sweat.'},
+  CSX:{name:'CorePower Strength X',code:'CSX',heat:'Non-heated',int:3,desc:'Strength-training format. Functional moves, weights and athletic conditioning.'},
+  CR:{name:'CoreRestore',code:'CR',heat:'Non-heated',int:0,desc:'Slow, restorative practice focused on stillness, breath and recovery.'}
+};
+/* ---------- gamification kit ---------- */
+const ICONS={
+ flame:'<path d="M12 2c1 4 5.5 5.5 5.5 11a5.5 5.5 0 0 1-11 0c0-3 1.8-4.6 2.3-7.3C10 7 11 8.5 11 10.5 12.4 8.6 12.6 5 12 2z"/>',
+ sun:'<circle cx="12" cy="12" r="4.5"/><g stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></g>',
+ bolt:'<path d="M13.5 1.5 4 14h7l-1.5 8.5L19 10h-7z"/>',
+ leaf:'<path d="M20.5 3.5C9 3.5 3.5 9 3.5 17c0 1.2.2 2.3.5 3.5l1.6-1.6C6 13 10.5 9.5 15 8c-4 2.5-7 6-8.4 11 1 .3 2 .5 3.4.5 7 0 10.5-6 10.5-16z"/>',
+ star:'<path d="m12 1.8 3.1 6.6 7.2.8-5.4 4.9 1.5 7.1L12 17.6l-6.4 3.6 1.5-7.1-5.4-4.9 7.2-.8z"/>',
+ dumbbell:'<path d="M2 9.5h2v5H2zM20 9.5h2v5h-2zM5 6.5h3.5v11H5zM15.5 6.5H19v11h-3.5zM8.5 10.8h7v2.4h-7z"/>',
+ trophy:'<path d="M6.5 2.5h11V8a5.5 5.5 0 0 1-11 0zM4.5 4H2v2.5A4.5 4.5 0 0 0 6.6 11M19.5 4H22v2.5a4.5 4.5 0 0 1-4.6 4.5M10 14.5h4V18h-4zM7 19h10v2.5H7z"/>',
+ compass:'<path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 2.4a7.6 7.6 0 1 1 0 15.2 7.6 7.6 0 0 1 0-15.2z"/><path d="m16.5 7.5-2.8 6.2-6.2 2.8 2.8-6.2z"/>',
+ heart:'<path d="M12 21.5S2.5 15.6 2.5 9.3A5 5 0 0 1 12 6.6a5 5 0 0 1 9.5 2.7c0 6.3-9.5 12.2-9.5 12.2z"/>',
+ gift:'<path d="M2.5 8.5h19v4.5h-19zM4 13h16v8.5H4zM10.8 8.5h2.4v13h-2.4z"/><path d="M12 8.5C9 8.5 6 3 9 3s3 5.5 3 5.5zm0 0c3 0 6-5.5 3-5.5s-3 5.5-3 5.5z"/>',
+ target:'<path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 3a7 7 0 1 1 0 14 7 7 0 0 1 0-14zm0 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm0 2.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/>',
+ crown:'<path d="M2.5 7l5 4 4.5-7 4.5 7 5-4-2 12h-15zM4.5 20h15v2h-15z"/>',
+ map:'<path d="M2 5l6.5-2.5 7 2.5L22 2.5v16.5l-6.5 2.5-7-2.5L2 21.5zM8.5 4.5v14M15.5 5v14" stroke="#fff" stroke-width="1.2" fill-rule="evenodd"/>',
+ check:'<path d="M9.5 16.2 4.8 11.5l-2.1 2.1 6.8 6.8L21.3 8.6l-2.1-2.1z"/>',
+ lock:'<path d="M6 10.5V8a6 6 0 0 1 12 0v2.5h1.5v11h-15v-11zm2.5 0h7V8a3.5 3.5 0 0 0-7 0z"/>'
+};
+const icon=(n,s=24)=>`<svg viewBox="0 0 24 24" width="${s}" height="${s}" fill="currentColor" aria-hidden="true">${ICONS[n]||ICONS.star}</svg>`;
+const G={xp:0,level:1,badges:{},per:100};
+function hud(){let h=$('.hud');if(!h){h=document.createElement('div');h.className='hud';document.body.appendChild(h)}
+ const lvl=Math.floor(G.xp/G.per)+1,pct=(G.xp%G.per)/G.per*100;
+ if(lvl>G.level){G.level=lvl;setTimeout(()=>toast('crown','Level '+lvl+'!','Keep the flow going','Level up'),350)}
+ h.innerHTML=`<div class="lvl">L${lvl}</div><div><div>${G.xp} XP</div><div class="xpb"><i style="width:${pct}%"></i></div></div>`;
+ h.classList.remove('bump');void h.offsetWidth;h.classList.add('bump')}
+function xp(n,at){G.xp+=n;hud();const p=document.createElement('div');p.className='xp-pop';p.textContent='+'+n+' XP';
+ const r=at&&at.getBoundingClientRect?at.getBoundingClientRect():{left:innerWidth-150,top:110,width:0};
+ p.style.left=Math.min(innerWidth-90,Math.max(8,r.left+r.width/2-36))+'px';p.style.top=Math.max(8,r.top-8)+'px';document.body.appendChild(p);setTimeout(()=>p.remove(),1000)}
+function toast(ic,title,sub,kicker='Badge unlocked'){let t=$('.toasts');if(!t){t=document.createElement('div');t.className='toasts';document.body.appendChild(t)}
+ const el=document.createElement('div');el.className='toast';el.innerHTML=`<div class="medal">${icon(ic)}</div><div><div class="k">${esc(kicker)}</div><b>${esc(title)}</b><small>${esc(sub)}</small></div>`;t.appendChild(el);
+ setTimeout(()=>{el.classList.add('out');setTimeout(()=>el.remove(),300)},3400)}
+function badge(id,ic,name,desc,pts=25){if(G.badges[id])return false;G.badges[id]={ic,name,desc,t:Date.now()};toast(ic,name,desc);xp(pts);return true}
+function confetti(n=150){const c=document.createElement('canvas');c.style.cssText='position:fixed;inset:0;pointer-events:none;z-index:95';c.width=innerWidth;c.height=innerHeight;document.body.appendChild(c);const x=c.getContext('2d');
+ const cols=['#f26722','#141414','#ffb47e','#2f7d4f','#d2540f','#fde9dd'];
+ const P=Array.from({length:n},()=>({x:innerWidth/2+(Math.random()-.5)*240,y:innerHeight*.38,vx:(Math.random()-.5)*18,vy:Math.random()*-15-5,r:Math.random()*7+5,c:cols[Math.random()*cols.length|0],a:Math.random()*6,s:(Math.random()-.5)*.35}));
+ let f=0;(function tick(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.42;p.vx*=.985;p.a+=p.s;x.save();x.translate(p.x,p.y);x.rotate(p.a);x.fillStyle=p.c;x.fillRect(-p.r/2,-p.r/4,p.r,p.r/2);x.restore()});if(++f<170)requestAnimationFrame(tick);else c.remove()})()}
+function countUp(el,to,fmt=v=>Math.round(v),ms=1200){const s=performance.now();(function t(n){const k=Math.min(1,(n-s)/ms),e=1-Math.pow(1-k,3);el.textContent=fmt(to*e);if(k<1)requestAnimationFrame(t)})(s)}
+function modal(html,{onClose}={}){const bg=document.createElement('div');bg.className='modal-bg';bg.innerHTML=`<div class="modal">${html}<div style="margin-top:20px"><button class="btn btn-primary" data-close>Continue</button></div></div>`;
+ document.body.appendChild(bg);const close=()=>{bg.remove();onClose&&onClose()};$('[data-close]',bg).onclick=close;bg.onclick=e=>{if(e.target===bg)close()};return bg}
+function scratch(box,onReveal){const c=document.createElement('canvas');box.appendChild(c);const r=box.getBoundingClientRect();c.width=Math.max(10,r.width);c.height=Math.max(10,r.height);const x=c.getContext('2d');
+ const g=x.createLinearGradient(0,0,c.width,c.height);g.addColorStop(0,'#c9c1b5');g.addColorStop(.5,'#ece6dd');g.addColorStop(1,'#b8afa2');x.fillStyle=g;x.fillRect(0,0,c.width,c.height);
+ x.fillStyle='rgba(20,20,20,.08)';for(let i=0;i<c.width;i+=14)for(let j=(i/14%2)*7;j<c.height;j+=14){x.beginPath();x.arc(i,j,2,0,7);x.fill()}
+ x.fillStyle='#5f5a53';x.font='800 16px Archivo,Arial,sans-serif';x.textAlign='center';x.fillText('SCRATCH TO REVEAL',c.width/2,c.height/2+6);
+ x.globalCompositeOperation='destination-out';let down=false,done=false,n=0,lp=null;
+ const reveal=()=>{if(done)return;done=true;c.style.transition='opacity .5s';c.style.opacity=0;setTimeout(()=>c.remove(),500);onReveal&&onReveal()};
+ const check=()=>{if(++n%6)return;const d=x.getImageData(0,0,c.width,c.height).data;let cl=0,t=0;for(let i=3;i<d.length;i+=80){t++;if(d[i]===0)cl++}if(cl/t>.45)reveal()};
+ const draw=e=>{if(!down||done)return;const b=c.getBoundingClientRect(),px=(e.clientX-b.left)*c.width/b.width,py=(e.clientY-b.top)*c.height/b.height;x.lineWidth=44;x.lineCap='round';x.beginPath();x.moveTo(lp?lp[0]:px,lp?lp[1]:py);x.lineTo(px,py);x.stroke();lp=[px,py];check()};
+ c.onpointerdown=e=>{down=true;lp=null;try{c.setPointerCapture(e.pointerId)}catch(_){}draw(e)};c.onpointermove=draw;c.onpointerup=c.onpointercancel=()=>{down=false;lp=null};
+ return reveal}
+function wheel(box,segs,onDone){const n=segs.length,R=150,cols=['#f26722','#141414','#ffb47e','#f7f2eb'],tcol={'#f26722':'#fff','#141414':'#fff','#ffb47e':'#141414','#f7f2eb':'#141414'};
+ const pt=a=>`${(R*Math.cos(a)).toFixed(2)} ${(R*Math.sin(a)).toFixed(2)}`;
+ let s=`<div class="wheel-ptr"></div><svg viewBox="-160 -160 320 320"><circle r="156" fill="#141414"/>`;
+ segs.forEach((lab,i)=>{const a0=i/n*2*Math.PI-Math.PI/2,a1=(i+1)/n*2*Math.PI-Math.PI/2,f=cols[i%cols.length],deg=((a0+a1)/2)*180/Math.PI;
+  s+=`<path d="M0 0 L${pt(a0)} A${R} ${R} 0 0 1 ${pt(a1)} Z" fill="${f}" stroke="#fff" stroke-width="2"/><text transform="rotate(${deg.toFixed(1)}) translate(${R*.6} 0)${Math.cos((a0+a1)/2)<-0.01?' rotate(180)':''}" fill="${tcol[f]}" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="12.5" text-anchor="middle" dominant-baseline="middle">${esc(lab)}</text>`});
+ s+=`<circle r="24" fill="#fff" stroke="#141414" stroke-width="4"/><circle r="8" fill="#f26722"/></svg>`;box.classList.add('wheel-wrap');box.innerHTML=s;let spun=false;
+ return ()=>{if(spun)return;spun=true;const i=Math.random()*n|0,seg=360/n,target=360*6-(i+.5)*seg;$('svg',box).style.transform=`rotate(${target}deg)`;setTimeout(()=>onDone(segs[i],i),4350)}}
+function shareCard({kicker,big,title,sub,foot='#POWERTOGETHER'},file='my-corepower-result.png'){
+ const c=document.createElement('canvas');c.width=1080;c.height=1350;const x=c.getContext('2d');
+ x.fillStyle='#141414';x.fillRect(0,0,1080,1350);
+ const g=x.createRadialGradient(880,260,40,880,260,560);g.addColorStop(0,'rgba(242,103,34,.55)');g.addColorStop(1,'rgba(242,103,34,0)');x.fillStyle=g;x.fillRect(0,0,1080,1350);
+ x.fillStyle='#fff';x.font='800 34px Archivo,Arial,sans-serif';x.fillText('COREPOWER',90,130);x.fillStyle='#f26722';x.fillText('YOGA',320,130);
+ x.fillStyle='#f26722';x.font='700 34px Inter,Arial,sans-serif';x.fillText(String(kicker).toUpperCase(),90,430);
+ x.fillStyle='#fff';x.font='800 190px Archivo,Arial,sans-serif';x.fillText(big,80,630);
+ const wrap=(t,y,lh,font,col)=>{x.font=font;x.fillStyle=col;let line='';for(const w of String(t).split(' ')){const tl=line?line+' '+w:w;if(x.measureText(tl).width>900&&line){x.fillText(line,90,y);y+=lh;line=w}else line=tl}x.fillText(line,90,y);return y+lh};
+ let y=wrap(String(title).toUpperCase(),740,86,'800 76px Archivo,Arial,sans-serif','#fff');
+ wrap(sub,y+20,52,'400 38px Inter,Arial,sans-serif','#d6d0c7');
+ x.fillStyle='#f26722';x.fillRect(90,1180,140,10);x.fillStyle='#bdb6ac';x.font='700 30px Inter,Arial,sans-serif';x.fillText(foot,90,1250);
+ c.toBlob(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=file;a.click()})}
+function badgeShelf(el,defs){el.innerHTML=defs.map(([id,ic,name])=>{const on=G.badges[id];return `<div class="bdg ${on?'':'lock'} ${on&&Date.now()-on.t<1500?'new':''}"><div class="medal ${on?'':'lock'}">${icon(on?ic:'lock',22)}</div>${esc(name)}</div>`}).join('')}
+/* ---------- embed support: report height to parent page (Webflow iframe) ---------- */
+(function(){if(window.self===window.top)return;document.documentElement.classList.add('embedded');
+ let last=0;const send=()=>{const h=Math.ceil(document.documentElement.scrollHeight);if(h!==last){last=h;parent.postMessage({cpyFrame:location.pathname.split('/').pop(),height:h},'*')}};
+ new ResizeObserver(send).observe(document.body);addEventListener('load',send);setInterval(send,800);
+ const _m=modal;modal=function(h,o){const bg=_m(h,o);setTimeout(()=>{try{$('.modal',bg).scrollIntoView({behavior:'smooth',block:'center'})}catch(e){}},50);return bg};})();
+</script>
+<script>
+const STAGES=[['su','Signed Up'],['fcb','First Class Booked'],['att','Attended'],['eng','Engaged'],['lap','Lapsed'],['exp','Trial Expired'],['won','Closed Won'],['lost','Closed Lost']];
+const PRESETS={
+ 'Fast converter':{d:[2,2,0,2,0,0,0],buy:5},
+ 'Buys after trial':{d:[2,0,2,2,0,2,0],buy:10},
+ 'Started, then lapsed':{d:[2,0,0,0,0,0,0],buy:0},
+ 'Never showed up':{d:[0,0,0,0,0,0,0],buy:0},
+ 'Booked, no-shows':{d:[1,0,1,0,0,0,0],buy:0},
+ 'Lapsed, came back':{d:[2,0,0,0,0,2,2],buy:9}
+};
+const SHOW={stage:true,auto:true,seller:true,exc:true};
+let D=[...PRESETS['Fast converter'].d],BUY=5,preset='Fast converter';
+$('#buy').innerHTML='<option value="0">No purchase</option>'+Array.from({length:14},(_,i)=>`<option value="${i+1}">Day ${i+1}${i<7?' (during trial)':' (after trial)'}</option>`).join('');
+$('#presets').innerHTML=Object.keys(PRESETS).map(k=>`<button data-k="${k}">${k}</button>`).join('');
+$$('#presets button').forEach(b=>b.onclick=()=>{preset=b.dataset.k;D=[...PRESETS[preset].d];BUY=PRESETS[preset].buy;draw()});
+$('#buy').onchange=e=>{BUY=+e.target.value;preset=null;draw()};
+$('#filters').innerHTML=[['stage','Stages'],['auto','Automations'],['seller','Seller actions'],['exc','Exceptions']].map(([k,t])=>`<label><input type="checkbox" data-k="${k}" checked> ${t}</label>`).join('');
+$$('#filters input').forEach(i=>i.onchange=()=>{SHOW[i.dataset.k]=i.checked;draw()});
+
+function simulate(DD=D,BB=BUY){const D=DD,BUY=BB;
+ const days=[];let stage='su',visited=new Set(['su']),att=0,last=null,noShows=0,ever=false,lapsedOnce=false,closed=false;
+ const log=(d,type,text,st)=>{(days[d]=days[d]||[]).push({type,text,st})};
+ const move=(d,s,why)=>{if(stage===s)return;stage=s;visited.add(s);log(d,'stage',`${STAGES.find(x=>x[0]===s)[1]}${why?` <span class="muted small">· ${why}</span>`:''}`,s)};
+ log(0,'stage','Signed Up <span class="muted small">· Free Week pass issued in Zenoti</span>');
+ log(0,'auto','Deal created via middleware sync; owner assigned by home studio');
+ log(0,'auto','Enrolled in Welcome sequence (email 1: how Free Week works)');
+ for(let d=1;d<=14&&!closed;d++){
+  if(BUY===d){
+   if(d>=8) log(d,'exc','Purchase after trial ended: same deal reopened to Closed Won, no new deal (record continuity)');
+   move(d,'won',`purchase on Day ${d}`);log(d,'auto','Unenrolled from all Free Week sequences');log(d,'auto','Membership onboarding workflow starts; contact lifecycle → Customer');
+   if(att>0) log(d,'seller','Congratulate in studio at next class (optional)');closed=true;break;
+  }
+  if(d<=7){
+   const a=D[d-1];
+   if(a>=1){ever=true; if(stage==='su') {move(d,'fcb','first booking');log(d,'auto','Booking confirmation + first-class prep email');}}
+   if(a===1){noShows++;log(d,'auto','No-show: reschedule email with one-tap rebooking');if(noShows===2)log(d,'seller','Second no-show: call to remove blockers and rebook');}
+   if(a===2){
+    const wasLapsed=stage==='lap';att++;last=d;
+    if(wasLapsed){log(d,'exc','Lapsed member checked in again: deal moves back, re-engagement sequence stopped');log(d,'auto','Unenrolled from Re-engagement sequence');}
+    if(att>=3&&stage!=='eng'){move(d,'eng',`${att} check-ins`);log(d,'auto','Intro Month offer email ($99 first month)');log(d,'seller','Membership conversation at front desk after class');}
+    else if(att<3&&(stage==='fcb'||stage==='su'||wasLapsed)){move(d,'att',att===1?'first check-in':`check-in #${att}`);if(att===1){log(d,'auto','Post-first-class email: how did it feel? + suggested next class');log(d,'seller','Follow-up call or SMS within 24 h of first class');}}
+   }
+   if(d===2&&!ever) log(d,'seller','No booking after 48 h: call to help book first class');
+   if(stage!=='lap'&&stage!=='won'&&((att===0&&d>=4)||(att>0&&d-last>=3))){
+    move(d,'lap',att===0?'no check-in by Day 4':`${d-last} days since last check-in`);
+    log(d,'auto','Enrolled in Re-engagement sequence (email + SMS)');
+    if(!lapsedOnce) log(d,'seller','Re-engagement call: offer a class recommendation for tomorrow');lapsedOnce=true;
+   }
+   if(d===6){log(d,'auto','Trial-ending reminder: 2 days left + Intro Month offer');if(stage==='eng'||stage==='att')log(d,'seller',stage==='eng'?'Priority call: engaged member, close before trial ends':'Call: share membership options before trial ends');}
+  } else if(d===8){
+   const lvl=att>=3?'Engaged':att>0?'Attended':'Never attended';
+   move(d,'exp','7-day pass ended, no purchase');log(d,'auto',`Set property free_week_activity = "${lvl}" (${att} check-ins)`);
+   log(d,'auto','Unenrolled from in-trial sequences; enrolled in Post-trial offer sequence (Day 8, 10, 12)');
+   if(att>0) log(d,'seller','Post-trial call: personal offer based on classes taken');
+  } else if(d===12&&att>=3){log(d,'seller','Final attempt: engaged member, last call before close-out');}
+ }
+ if(!closed){const reason=att>=3?'Engaged, did not convert':att>0?'Attended, did not convert':ever?'Booked, never attended':'Never booked';
+  move(15,'lost','no purchase by Day 14');log(15,'auto',`closed_lost_reason = "${reason}" set automatically`);log(15,'auto','Enrolled in long-term nurture (win-back offers, new class formats)');}
+ return {days,stage,visited,att};
+}
+function draw(){
+ $$('#presets button').forEach(b=>b.classList.toggle('sel',b.dataset.k===preset));
+ $('#buy').value=BUY;
+ $('#days').innerHTML=D.map((v,i)=>`<button class="dc ${['','b','a'][v]}" data-i="${i}"><div class="n">D${i+1}</div><div class="s">${['–','No-show','Class'][v]}</div></button>`).join('');
+ $$('#days .dc').forEach(c=>c.onclick=()=>{const i=+c.dataset.i;D[i]=(D[i]+1)%3;preset=null;draw()});
+ const r=simulate();
+ $('#stages').innerHTML=STAGES.map(([k,t])=>`<div class="stg ${k} ${r.visited.has(k)?'v':''} ${r.stage===k?'cur':''}">${t}<small>${r.stage===k?'final':r.visited.has(k)?'visited':''}</small></div>`).join('');
+ const all=r.days.flat().filter(Boolean),cnt=t=>all.filter(e=>e.type===t).length;
+ $('#kpis').innerHTML=[[r.att,'classes attended'],[cnt('auto'),'automations fired'],[cnt('seller'),'seller touchpoints'],[cnt('exc'),'exceptions']].map(([v,t])=>`<div class="kpi"><b>${v}</b><span>${t}</span></div>`).join('');
+ const lbl={stage:'STAGE',auto:'AUTO',seller:'SELLER',exc:'EXCEPTION'};
+ $('#tl').innerHTML=r.days.map((evs,d)=>{if(!evs)return'';const f=evs.filter(e=>SHOW[e.type]);if(!f.length)return'';
+  const sub=d===0?'Signup':d<=7?`Trial · ${['–','no-show','class'][D[d-1]]}`:d===15?'Close-out':'Post-trial';
+  return `<div class="tl-day fade"><div class="d">Day ${d}<small>${sub}</small></div><div>${f.map(e=>`<div class="ev"><span class="tagx t-${e.type}">${lbl[e.type]}</span><span>${e.text}</span></div>`).join('')}</div></div>`}).join('');
+}
+draw();
+
+/* ---------- Training game: Pipeline Pro ---------- */
+$$('.tab').forEach(t=>t.onclick=()=>{$$('.tab').forEach(x=>x.classList.toggle('on',x===t));$('#explore').hidden=t.dataset.t!=='explore';$('#game').hidden=t.dataset.t!=='game';if(t.dataset.t==='game'&&!GS.started)startScreen()});
+const RANKS=[[0,'Rookie','compass'],[40,'Rising Rep','leaf'],[70,'Pipeline Pro','star'],[90,'Free Week Master','crown']];
+const LB=[{n:'Jordan (sample)',s:142},{n:'Priya (sample)',s:118},{n:'Sam (sample)',s:87},{n:'Taylor (sample)',s:54}];
+const stripTags=s=>s.replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim();
+const normKey=s=>stripTags(s).replace(/"[^"]*"|\d+/g,'#');
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+function randScenario(){const D=Array.from({length:7},()=>{const r=Math.random();return r<.42?0:r<.57?1:2});const r=Math.random();return {D,B:r<.45?0:1+(Math.random()*14|0)}}
+const POOL=(()=>{const m=new Map();for(let k=0;k<120;k++){const {D,B}=randScenario();simulate(D,B).days.forEach(ev=>ev&&ev.forEach(e=>{if(e.type!=='stage'){const key=normKey(e.text);if(!m.has(key))m.set(key,stripTags(e.text))}}))}return [...m.entries()]})();
+const stageAfter=(r,d)=>{let s='su';for(let i=0;i<=d;i++)(r.days[i]||[]).forEach(e=>{if(e.st)s=e.st});return s};
+const stName=k=>STAGES.find(s=>s[0]===k)[1];
+function makeQ(){
+ for(let t=0;t<80;t++){
+  const {D,B}=randScenario(),r=simulate(D,B),type=['stage','event','who'][Math.random()*3|0];
+  const active=r.days.map((e,i)=>e&&i>0?i:null).filter(x=>x!=null);if(!active.length)continue;
+  if(type==='stage'){const d=active[Math.random()*active.length|0],c=stageAfter(r,d);
+   return {D,B,r,d,kind:'Stage check',q:`What stage is the deal in at the end of Day ${d}?`,opts:shuffle([c,...shuffle(STAGES.map(s=>s[0]).filter(s=>s!==c)).slice(0,3)]).map(k=>({t:stName(k),ok:k===c}))}}
+  if(type==='event'){const d=active[Math.random()*active.length|0],evs=(r.days[d]||[]).filter(e=>e.type!=='stage');if(!evs.length)continue;
+   const c=evs[Math.random()*evs.length|0],keys=new Set(evs.map(e=>normKey(e.text))),ds=shuffle(POOL.filter(([k])=>!keys.has(k))).slice(0,3);if(ds.length<3)continue;
+   return {D,B,r,d,kind:'What fires?',q:`Which of these happens on Day ${d}?`,opts:shuffle([{t:stripTags(c.text),ok:true},...ds.map(([,x])=>({t:x,ok:false}))])}}
+  if(type==='who'){const d=1+(Math.random()*14|0),prev=stageAfter(r,d-1);if(prev==='won'||prev==='lost')continue;const evs=r.days[d]||[];
+   const c=evs.some(e=>e.type==='seller')?2:evs.length?1:0;
+   return {D,B,r,d,kind:'Who acts?',q:`On Day ${d}, who needs to do something?`,opts:['Nothing happens','Automation only','A seller needs to act'].map((x,i)=>({t:x,ok:i===c}))}}
+ }}
+const GS={started:false,name:'You'};
+function hearts(){return `<div class="hearts">${[0,1,2].map(i=>`<span class="${i<GS.lives?'':'gone'}">${icon('heart',20)}</span>`).join('')}</div>`}
+function startScreen(){GS.started=true;
+ $('#gp').innerHTML=`<div class="fade" style="text-align:center"><div class="medal big-medal">${icon('trophy',50)}</div><h2>Pipeline Pro</h2><p class="muted" style="margin:8px auto 0;max-width:520px">Ten random Free Week scenarios. Predict the stage, spot which automation fires, and know when a seller has to step in. Three lives. Streaks multiply your points.</p>
+  <div class="row" style="justify-content:center;margin-top:18px;gap:10px"><input type="text" id="pname" placeholder="Your name" value="${esc(GS.name==='You'?'':GS.name)}" style="max-width:220px"><button class="btn btn-primary" id="play">Play</button></div>
+  <div class="row small muted" style="justify-content:center;gap:18px;margin-top:16px"><span>${icon('heart',14)} 3 lives</span><span>${icon('flame',14)} streak bonus</span><span>${icon('crown',14)} 4 ranks</span></div></div>`;
+ $('#play').onclick=()=>{GS.name=($('#pname').value||'You').trim();Object.assign(GS,{i:0,score:0,lives:3,streak:0,best:0,correct:0,answered:0});nextQ()}}
+function nextQ(){
+ if(GS.lives<=0||GS.i>=10)return endGame();
+ const Q=GS.q=makeQ();GS.i++;
+ $('#gp').innerHTML=`<div class="fade"><div class="ghead"><div class="row" style="gap:10px"><span class="pill">Q ${GS.i}/10</span><span class="pill o">${Q.kind}</span></div><div class="row" style="gap:14px">${hearts()}<span class="row" style="gap:4px;font-weight:800;color:var(--orange)">${icon('flame',18)}${GS.streak}</span><b>${GS.score} pts</b></div></div>
+  <div class="progress" style="margin-top:12px"><i style="width:${(GS.i-1)*10}%"></i></div>
+  <p class="small muted" style="margin-top:16px">Scenario: member's Free Week activity</p>
+  <div class="mini">${Q.D.map((v,i)=>`<div class="dc ${['','b','a'][v]}" style="cursor:default"><div class="n">D${i+1}</div><div class="s">${['–','No-show','Class'][v]}</div></div>`).join('')}<div class="dc" style="cursor:default;padding:8px 10px"><div class="n">BUY</div><div class="s">${Q.B?'Day '+Q.B:'Never'}</div></div></div>
+  <h2 style="text-transform:none;font-size:22px;margin-top:6px">${Q.q}</h2>
+  <div class="grid2" style="margin-top:14px" id="opts">${Q.opts.map((o,i)=>`<button class="opt" data-i="${i}"><div class="t" style="font-weight:600">${esc(o.t)}</div></button>`).join('')}</div>
+  <div id="fb"></div></div>`;
+ $$('#opts .opt').forEach(b=>b.onclick=()=>answerQ(b));
+}
+function answerQ(btn){
+ const Q=GS.q,o=Q.opts[+btn.dataset.i];GS.answered++;
+ $$('#opts .opt').forEach((b,i)=>{b.disabled=true;b.style.cursor='default';if(Q.opts[i].ok)b.classList.add('right')});
+ let msg;
+ if(o.ok){GS.correct++;GS.streak++;GS.best=Math.max(GS.best,GS.streak);const pts=10+(GS.streak-1)*3;GS.score+=pts;xp(pts,btn);msg=`<b style="color:var(--ok)">Correct! +${pts}</b>${GS.streak>1?` <span class="small muted">(${GS.streak}x streak)</span>`:''}`;
+  if(GS.streak===3)badge('g3','bolt','Hot Streak','3 right in a row',10);if(GS.streak===6)badge('g6','flame','Unstoppable','6 right in a row',20)}
+ else{btn.classList.add('wrong');GS.lives--;GS.streak=0;$('#gp').classList.remove('shake');void $('#gp').offsetWidth;$('#gp').classList.add('shake');msg=`<b style="color:var(--bad)">Not quite.</b> ${GS.lives?`${GS.lives} ${GS.lives>1?'lives':'life'} left.`:'Out of lives!'}`}
+ const ev=(Q.r.days[Q.d]||[]),lbl={stage:'STAGE',auto:'AUTO',seller:'SELLER',exc:'EXCEPTION'};
+ $('#fb').innerHTML=`<div class="fade" style="margin-top:18px;background:var(--sand);border-radius:12px;padding:16px"><div>${msg}</div><div class="small muted" style="margin:8px 0 6px;font-weight:700;text-transform:uppercase;letter-spacing:.08em">What actually happens on Day ${Q.d}</div>
+  ${ev.length?ev.map(e=>`<div class="ev"><span class="tagx t-${e.type}">${lbl[e.type]}</span><span>${e.text}</span></div>`).join(''):'<div class="small">Nothing. No stage change, no automation, no seller task.</div>'}
+  <p class="small muted" style="margin-top:8px">Stage at end of day: <b>${stName(stageAfter(Q.r,Q.d))}</b></p>
+  <div style="margin-top:12px;text-align:right"><button class="btn btn-primary" id="nx">${GS.lives<=0||GS.i>=10?'See results':'Next question'}</button></div></div>`;
+ $('#nx').onclick=nextQ;$('#nx').focus();
+}
+function endGame(){
+ const pct=Math.round(GS.correct/10*100),rk=RANKS.reduce((a,r)=>pct>=r[0]?r:a,RANKS[0]);
+ const board=[...LB,{n:GS.name,s:GS.score,me:true}].sort((a,b)=>b.s-a.s);LB.push({n:GS.name+' (earlier)',s:GS.score});
+ if(pct>=70){confetti();badge('rank-'+rk[1],rk[2],rk[1],`Scored ${pct}% in Pipeline Pro`,30)}
+ $('#gp').innerHTML=`<div class="fade" style="text-align:center"><div class="medal big-medal ${pct<40?'ink':''}">${icon(rk[2],50)}</div><span class="pill o">Your rank</span><h2 style="margin-top:8px;font-size:30px">${rk[1]}</h2>
+  <div class="row" style="justify-content:center;gap:12px;margin-top:16px"><div class="kpi" style="min-width:110px"><b id="fs">0</b><span>points</span></div><div class="kpi" style="min-width:110px"><b>${GS.correct}/10</b><span>correct</span></div><div class="kpi" style="min-width:110px"><b>${GS.best}</b><span>best streak</span></div></div>
+  <div class="levels" style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:18px">${RANKS.map(r=>`<div class="stg ${r===rk?'cur':pct>=r[0]?'v':''}">${r[1]}<small>${r[0]}%+</small></div>`).join('')}</div>
+  <h3 style="margin-top:22px;text-align:left">Leaderboard</h3><div style="margin-top:8px;text-align:left">${board.slice(0,6).map((p,i)=>`<div class="lb-row ${p.me?'me':''}"><span>${i+1}. ${esc(p.n)}</span><b>${p.s}</b></div>`).join('')}</div>
+  <div class="row" style="justify-content:center;gap:10px;margin-top:20px"><button class="btn btn-primary" id="again">Play again</button><button class="btn btn-ghost" id="shareG">Share card</button></div></div>`;
+ countUp($('#fs'),GS.score);
+ $('#again').onclick=()=>{Object.assign(GS,{i:0,score:0,lives:3,streak:0,best:0,correct:0,answered:0});nextQ()};
+ $('#shareG').onclick=()=>shareCard({kicker:'Pipeline Pro training',big:GS.score+'',title:rk[1],sub:`${GS.correct}/10 correct, best streak ${GS.best}. Think you know the Free Week pipeline?`,foot:'Seller training · internal'},'pipeline-pro.png');
+}
+
+</script></body></html>
